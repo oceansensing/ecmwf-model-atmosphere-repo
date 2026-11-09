@@ -1,0 +1,34 @@
+# What this repository publishes: ECMWF's open-data forecast fields — the 10 m wind, the 2 m and
+# 850 hPa air temperatures, the cloud cover and the 500 hPa heights from the IFS, and ECWAM's wave
+# height — moved from `realtime-data-repo` on 2026-11-09 under the same root names. Both steps are
+# one lane, `data.ecmwf.int`.
+
+[contract]
+check = ["node", "scripts/test-schema.mjs"]
+roots = ["node", "scripts/test-schema.mjs", "--roots"]
+
+[defaults]
+timeout_minutes = 20
+
+[steps.wind]
+cmd = ["python3", "scripts/fetch-wind.py"]
+lane = "ecmwf"
+
+[steps.waves]
+cmd = ["python3", "scripts/fetch-waves.py"]
+lane = "ecmwf"
+
+[products.wind]
+title = "ECMWF 10 m wind, 2 m and 850 hPa temperature, cloud cover and 500 hPa heights"
+step = "wind"
+roots = ["wind.json", "air.json", "cloud.json", "air-850.json", "gh-500.json", "hgt500-ecmwf.json"]
+writes = ["wind*.json", "air*.json", "cloud*.json", "gh-*.json", "hgt500-ecmwf.json"]
+r2_only = ["hgt500-ecmwf.json"]
+max_age_hours = 4
+
+[products.waves]
+title = "ECWAM significant wave height"
+step = "waves"
+roots = ["waves.json"]
+writes = ["waves*.json"]
+max_age_hours = 4
