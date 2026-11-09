@@ -1,7 +1,7 @@
 # ecmwf-model-atmosphere-repo: the founding plan and running record
 
 ECMWF's open forecast data, the atmosphere and the waves. Created on GitHub by the owner and given its documents by the site's
-`pipeline/scaffold/new-origin.py`. **Nothing is published yet.**
+`pipeline/scaffold/new-origin.py`. **Publishing since 2026-11-09**, hourly at :13.
 
 ## What it is for
 
@@ -13,5 +13,11 @@ ECMWF's open data, `https://data.ecmwf.int/forecasts`: the IFS high-resolution f
 
 ## Open
 
-1. The first dispatched run, read against `realtime-data-repo`'s copy, and then the schedule.
-2. The overlap with `realtime-data-repo`, then its declarations removed.
+1. The overlap with `realtime-data-repo`, then its declarations removed.
+
+## Record
+
+- **2026-11-09, the first runs**: dispatched at 08:16 EST (run 42623969507), green — its six Pages files
+  byte-identical to `realtime-data-repo`'s (the 06Z run's step +6 h), R2 14 files; the second at 08:58 (run
+  42630255870), green — seeded 7 files from the first, the step +9 h, both products fresh, R2 12 of 14 uploaded.
+  The schedule uncommented then, hourly at :13.
