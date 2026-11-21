@@ -1,0 +1,63 @@
+{
+ "schema": 2,
+ "contract": 1,
+ "generated": "2026-11-21T12:22:19Z",
+ "mode": "full",
+ "run": {
+  "id": "44903455617",
+  "url": "https://github.com/oceansensing/ecmwf-model-atmosphere-repo/actions/runs/44903455617"
+ },
+ "schedule": {
+  "crons": [
+   "13 * * * *"
+  ],
+  "longestGapHours": 1.0
+ },
+ "products": {
+  "wind": {
+   "title": "ECMWF 10 m wind, 2 m and 850 hPa temperature, cloud cover and 500 hPa heights",
+   "roots": [
+    "wind.json",
+    "air.json",
+    "cloud.json",
+    "air-850.json",
+    "gh-500.json",
+    "hgt500-ecmwf.json"
+   ],
+   "fate": "fresh",
+   "reason": null,
+   "checked": "2026-11-21T12:22:19Z",
+   "updated": "2026-11-21T11:17:21Z",
+   "hour": "2026-11-21T12:00:00Z",
+   "modelRun": "2026-11-21T00:00:00Z",
+   "source": "ECMWF IFS",
+   "hours": [
+    "2026-11-21T12:00:00Z"
+   ],
+   "stale": false,
+   "staleCause": null,
+   "ageHours": 0.37,
+   "nearestOffsetHours": 0.37
+  },
+  "waves": {
+   "title": "ECWAM significant wave height",
+   "roots": [
+    "waves.json"
+   ],
+   "fate": "fresh",
+   "reason": null,
+   "checked": "2026-11-21T12:22:19Z",
+   "updated": "2026-11-21T11:17:21Z",
+   "hour": "2026-11-21T12:00:00Z",
+   "modelRun": "2026-11-21T00:00:00Z",
+   "source": "ECMWF ECWAM",
+   "hours": [
+    "2026-11-21T12:00:00Z"
+   ],
+   "stale": false,
+   "staleCause": null,
+   "ageHours": 0.37,
+   "nearestOffsetHours": 0.37
+  }
+ }
+}
