@@ -13,7 +13,8 @@ ECMWF's open data, `https://data.ecmwf.int/forecasts`: the IFS high-resolution f
 
 ## Open
 
-1. The overlap with `realtime-data-repo`, then its declarations removed.
+1. The hours either side and the sea-level pressure (D2): the site's push, then this repository's; the first run and
+   the second read.
 
 ## Record
 
@@ -21,3 +22,6 @@ ECMWF's open data, `https://data.ecmwf.int/forecasts`: the IFS high-resolution f
   byte-identical to `realtime-data-repo`'s (the 06Z run's step +6 h), R2 14 files; the second at 08:58 (run
   42630255870), green — seeded 7 files from the first, the step +9 h, both products fresh, R2 12 of 14 uploaded.
   The schedule uncommented then, hourly at :13.
+- **2026-11-22, evening: the hours either side and the sea-level pressure** (D2), built in the site's fetchers
+  and rehearsed from this branch (four runs, nothing published); this repository's declaration and workflow
+  committed, not pushed.

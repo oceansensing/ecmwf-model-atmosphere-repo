@@ -77,6 +77,10 @@ jobs:
         run: python3 pipeline/test_orchestrate.py
       - name: Self-test fetch-wind.py
         run: python3 site/scripts/fetch-wind.py --self-test
+      - name: Self-test fetch-waves.py
+        run: python3 site/scripts/fetch-waves.py --self-test
+      - name: Self-test the hours either side
+        run: python3 site/scripts/ecmwf_hours.py --self-test
       - name: Seed the stage from the last publish
         env:
           PIPELINE_ROOT: ${{ github.workspace }}
@@ -118,25 +122,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:
-      contents: write
+      contents: read
       pages: write
       id-token: write
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
-      - name: Download the branch content
-        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
-        with:
-          name: branch-out
-          path: branch-out
-      - name: Publish the branch
-        run: |
-          cd branch-out
-          git init -q
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -q -m "publish $(date -u +%Y-%m-%dT%H:%M:%SZ)"
-          git push -q --force "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:published
       - name: Configure Pages
         if: needs.build.outputs.deploy == 'true'
         uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
@@ -150,7 +139,9 @@ jobs:
     needs: build
     if: needs.build.outputs.deploy == 'true'
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    # A new run's hours ahead are about 700 MB to send (2026-11-22, the
+    # rehearsal: sixteen hours of seven grids).
+    timeout-minutes: 30
     permissions:
       contents: read
     steps:
@@ -184,3 +175,33 @@ jobs:
           mkdir site
           tar -xf pages/artifact.tar -C site
           python3 code/pipeline/publish_r2.py site "$GITHUB_REPOSITORY" --with r2-only
+
+  # **The branch moves once R2 holds what it lists** (2026-11-22; the site
+  # pipeline's D16, ECMWF's sitting): the hours either side are R2's alone,
+  # and the next run reads from the branch which of them it has published and
+  # need not read again. Pushed beside a failed R2 publish, the branch would
+  # name hours R2 never received, and none would be read again before the
+  # model's next run. So it follows the R2 job of a run that deployed; after
+  # any other, the next run starts from the last branch and reads them again.
+  remember:
+    needs: [build, publish-r2]
+    if: needs.build.outputs.deploy == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    steps:
+      - name: Download the branch content
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: branch-out
+          path: branch-out
+      - name: Publish the branch
+        run: |
+          cd branch-out
+          git init -q
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "publish $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push -q --force "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:published
