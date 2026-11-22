@@ -24,9 +24,9 @@ run time. This repository carries `pipeline/products.toml` and its publish
 workflow, and nothing else executable. Each run publishes to GitHub Pages and
 to Cloudflare R2 from one build. Related repositories: `realtime-data-repo` (the observations, which published these products until 2026-11-09), `gfs-model-atmosphere-repo` (NOAA's GFS, the same quantities from another model).
 
-**Which document gets what, and what "update docs" means across all
-thirty-four repositories, is the doctrine block at the top of `CLAUDE.md`**: the
-same text in all thirty-four, held equal by the site's `check:docs`.
+**Which document gets what, and what "update docs" means across every
+repository of this project, is the doctrine block at the top of `CLAUDE.md`**: the
+same text in each, held equal by the site's `check:docs`.
 
 ## Structure
 
