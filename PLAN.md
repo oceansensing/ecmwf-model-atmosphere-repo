@@ -13,8 +13,8 @@ ECMWF's open data, `https://data.ecmwf.int/forecasts`: the IFS high-resolution f
 
 ## Open
 
-1. The hours either side and the sea-level pressure (D2): the site's push, then this repository's; the first run and
-   the second read.
+1. The hours either side (D2): the run that moves the base, keeping the last behind, and the first on a new ECMWF run,
+   read; the window behind full a day after the first run.
 
 ## Record
 
@@ -24,4 +24,8 @@ ECMWF's open data, `https://data.ecmwf.int/forecasts`: the IFS high-resolution f
   The schedule uncommented then, hourly at :13.
 - **2026-11-22, evening: the hours either side and the sea-level pressure** (D2), built in the site's fetchers
   and rehearsed from this branch (four runs, nothing published); this repository's declaration and workflow
-  committed, not pushed.
+  pushed that evening.
+- **2026-11-23 (UTC), the first runs with the hours**: the first (run 45090175109, 00:40 UTC) green — the 18Z run's
+  base at 00:00 UTC and sixteen hours ahead for each of seven roots, the sea-level pressure among them, nothing dated
+  on the branch, R2 equal to the build (135 files), the wind's step 235 s; the second (45093902084, 01:19 UTC) found
+  nothing new and R2 kept the 112 hours ahead.
