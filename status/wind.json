@@ -1,0 +1,66 @@
+{
+ "schema": 1,
+ "product": "wind",
+ "title": "ECMWF 10 m wind and its speed, 2 m and 850 hPa temperature, cloud cover, sea-level pressure and 500 hPa heights",
+ "fate": "fresh",
+ "reason": null,
+ "checked": "2026-11-28T15:17:49Z",
+ "updated": "2026-11-28T14:18:19Z",
+ "hour": "2026-11-28T15:00:00Z",
+ "modelRun": "2026-11-28T06:00:00Z",
+ "source": "ECMWF IFS",
+ "hours": [
+  "2026-11-28T15:00:00Z"
+ ],
+ "files": {
+  "air-850.json": {
+   "bytes": 5308600,
+   "sha256": "51e4dd934efaa4693008104a3307dff60b2af2f5cac30821b54d800814599f7a"
+  },
+  "air-850.v20261128T1500Z.json": {
+   "bytes": 5305827
+  },
+  "air.json": {
+   "bytes": 5258037,
+   "sha256": "dbfdaefb8e5a7cae55b79d23ed1f781e9f5d0512a1aeb142e2895cf181b94d6a"
+  },
+  "air.v20261128T1500Z.json": {
+   "bytes": 5255364
+  },
+  "cloud.json": {
+   "bytes": 4740594,
+   "sha256": "8263d8057fa42f0edd2c9c11ae0c4c080172fe5b71a65d27dba8020ccda641f5"
+  },
+  "cloud.v20261128T1500Z.json": {
+   "bytes": 4737871
+  },
+  "hgt500-ecmwf.json": {
+   "bytes": 7270783,
+   "sha256": "1f0b50d30e7a4925d6423b07d22b0d5aeb1febaf3080e7edc6053c25ffd4622e"
+  },
+  "hgt500-ecmwf.v20261128T1500Z.json": {
+   "bytes": 7267885
+  },
+  "mslp-ecmwf.json": {
+   "bytes": 7049224,
+   "sha256": "8c5d2884fcf4292ba76a8b5987baad8ef9bd2b396cac11320ba37535377f39f6"
+  },
+  "mslp-ecmwf.v20261128T1500Z.json": {
+   "bytes": 7046376
+  },
+  "wind.json": {
+   "bytes": 9499518,
+   "sha256": "49ca6f4ae5095ae527aa6e940538f6dc4f94509acbe23f0ebf641a56c5112df0"
+  },
+  "wind.v20261128T1500Z.json": {
+   "bytes": 9494121
+  },
+  "wspd-ecmwf.json": {
+   "bytes": 4315936,
+   "sha256": "d3f3ff1934d4e4371b9cd7bb9f293816bd2130baad2dccd5e78171cb0e640227"
+  },
+  "wspd-ecmwf.v20261128T1500Z.json": {
+   "bytes": 4313088
+  }
+ }
+}

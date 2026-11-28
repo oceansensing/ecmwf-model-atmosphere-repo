@@ -1,0 +1,17 @@
+{
+ "schema": 1,
+ "generated": "2026-11-28T15:17:49Z",
+ "mode": "full",
+ "fates": {
+  "wind": "fresh",
+  "heights": "fresh",
+  "waves": "fresh"
+ },
+ "reasons": {},
+ "built": {},
+ "withheld": {},
+ "deploy": true,
+ "notes": [],
+ "behind": [],
+ "tile_keys": {}
+}

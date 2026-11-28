@@ -1,0 +1,21 @@
+{
+ "schema": 1,
+ "product": "heights",
+ "title": "ECMWF 500 hPa height contours",
+ "fate": "fresh",
+ "reason": null,
+ "checked": "2026-11-28T15:17:49Z",
+ "updated": "2026-11-28T14:18:19Z",
+ "hour": "2026-11-28T15:00:00Z",
+ "modelRun": "2026-11-28T06:00:00Z",
+ "source": "ECMWF IFS",
+ "hours": [
+  "2026-11-28T15:00:00Z"
+ ],
+ "files": {
+  "gh-500.json": {
+   "bytes": 138887,
+   "sha256": "7aa5a80e613d879ce7783552f2055b69869535a93a674179f17205492fdb5dd6"
+  }
+ }
+}
